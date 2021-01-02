@@ -33,3 +33,6 @@ add_action('after_setup_theme', function () {
     load_theme_textdomain('pokymedia');
 });
 
+// Remove default wordpress features such as posts and comments
+require_once THEME_DIRECTORY . '/includes/remove-default-features.php';
+
