@@ -17,8 +17,8 @@ add_action('after_setup_theme', function () {
     add_theme_support('custom-logo', [
         'height' => 500,
         'width' => 500,
-        'flex-height' => false,
-        'flex-width' => false,
+        'flex-width' => true,
+        'flex-height' => true,
     ]);
 
     // Background color in Customizer API
