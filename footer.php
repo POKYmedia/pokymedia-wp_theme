@@ -1,6 +1,6 @@
-<footer class="bg-gray-900 py-12 text-gray-200 flex flex-col items-center">
+<footer class="flex flex-col items-center py-12 bg-footer text-footer">
     <div class="w-1/2 sm:w-1/3 md:w-1/6 text-center">
-        <a href="">
+        <a href="<?php get_site_url() ?>">
             <svg
                     class="h-32 w-full fill-current"
                     xmlns="http://www.w3.org/2000/svg"
@@ -56,22 +56,22 @@
                 />
             </svg>
         </a>
-        <div class="flex text-gray-900 my-10 justify-between">
+        <div class="flex my-10 justify-between">
             <a
                     href=""
-                    class="bg-gray-200 rounded-full w-10 h-10 flex justify-center items-center hover:bg-gray-400"
+                    class="flex justify-center items-center rounded-full w-10 h-10 bg-text-footer hover:bg-text-footer text-footer-inverse"
             >
                 <i class="fab fa-facebook-f text-2xl"></i>
             </a>
             <a
                     href=""
-                    class="bg-gray-200 rounded-full w-10 h-10 flex justify-center items-center hover:bg-gray-400"
+                    class="flex justify-center items-center rounded-full w-10 h-10 bg-text-footer hover:bg-text-footer text-footer-inverse"
             >
                 <i class="fab fa-youtube text-2xl"></i>
             </a>
             <a
                     href=""
-                    class="bg-gray-200 rounded-full w-10 h-10 flex justify-center items-center hover:bg-gray-400"
+                    class="flex justify-center items-center rounded-full w-10 h-10 bg-text-footer hover:bg-text-footer text-footer-inverse"
             >
                 <i class="fab fa-instagram fa-2x"></i>
             </a>

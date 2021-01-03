@@ -1,6 +1,6 @@
 <header>
     <!-- TODO: sticky (absolute) -->
-    <nav class="navigation md:py-2 bg-white sticky top-0 w-full z-10 shadow-xl-bottom">
+    <nav class="navigation md:py-2 sticky top-0 w-full z-10 shadow-xl-bottom navbar-background">
         <div class="md:hidden py-2 flex items-center flex-wrap">
             <a href="javascript:void(0)" class="inline-block my-1 ml-3">
                 <svg class="h-16 w-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 433.22 377.91">
@@ -67,18 +67,18 @@
                 class="block w-full md:flex items-center justify-center uppercase md:container mx-0 md:mx-auto shadow-inner-xl-top md:shadow-inner-none py-6 md:p-0 text-center md:text-left hidden"
         >
             <li class="md:mr-12 lg:mr-20">
-                <a href="javascript:void(0)" class="py-2 md:py-0 block hover:bg-gray-200 md:hover:bg-white"
-                ><span> O nás </span></a
-                >
+                <a href="javascript:void(0)" class="py-2 md:py-0 block md:hover:bg-white hover:text-normal">
+                    <span class="border-accent"> O nás </span>
+                </a>
             </li>
             <li class="md:mr-12 lg:mr-20">
-                <a href="javascript:void(0)" class="py-2 md:py-0 block hover:bg-gray-200 md:hover:bg-white">
-                    <span> Rande </span>
+                <a href="javascript:void(0)" class="py-2 md:py-0 block hover:text-normal">
+                    <span class="border-accent"> Rande </span>
                 </a>
             </li>
             <li class="md:mr-12 lg:mr-20 active">
-                <a href="javascript:void(0)" class="py-2 md:py-0 block hover:bg-gray-200 md:hover:bg-white">
-                    <span>Svadobné</span>
+                <a href="javascript:void(0)" class="py-2 md:py-0 block hover:text-normal">
+                    <span class="border-accent">Svadobné</span>
                 </a>
             </li>
             <li class="md:mr-12 lg:mr-20 hidden md:block">
@@ -136,18 +136,19 @@
                 </a>
             </li>
             <li class="md:mr-12 lg:mr-20">
-                <a href="javascript:void(0)" class="py-2 md:py-0 block hover:bg-gray-200 md:hover:bg-white"
-                ><span>Rodinné</span></a
-                >
+                <a href="javascript:void(0)" class="py-2 md:py-0 block hover:text-normal">
+                    <span class="border-accent">Rodinné</span>
+                </a>
             </li>
             <li class="md:mr-12 lg:mr-20">
-                <a href="javascript:void(0)" class="py-2 md:py-0 block hover:bg-gray-200 md:hover:bg-white"
-                ><span>Video</span></a
+                <a href="javascript:void(0)" class="py-2 md:py-0 block hover:text-normal"
                 >
+                    <span class="border-accent"> Video</span>
+                </a>
             </li>
             <li>
-                <a href="javascript:void(0)" class="py-2 md:py-0 block hover:bg-gray-200 md:hover:bg-white">
-                    <span> Kontakt </span>
+                <a href="javascript:void(0)" class="py-2 md:py-0 block hover:text-normal">
+                    <span class="border-accent"> Kontakt </span>
                 </a>
             </li>
         </ul>

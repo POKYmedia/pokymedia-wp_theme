@@ -8,6 +8,6 @@ add_action('wp_enqueue_scripts', function () {
 
     // scripts
     wp_enqueue_script('poky-vendor-script', THEME_DIRECTORY_URI . '/js/vendor.min.js', null, null, true);
-    wp_enqueue_script('poky-script', THEME_DIRECTORY_URI . '/js/script.min.js',null, null, true);
-});
+    wp_enqueue_script('poky-script', THEME_DIRECTORY_URI . '/js/script.min.js', null, null, true);
+}, 1);
 

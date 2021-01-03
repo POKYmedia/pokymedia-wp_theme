@@ -13,7 +13,7 @@ add_action('after_setup_theme', function () {
     // <title> tag
     add_theme_support('title-tag');
 
-    // Logo
+    // Logo setup in Customizer API
     add_theme_support('custom-logo', [
         'height' => 500,
         'width' => 500,
@@ -21,7 +21,7 @@ add_action('after_setup_theme', function () {
         'flex-width' => false,
     ]);
 
-    // Background color
+    // Background color in Customizer API
     add_theme_support('custom-background', [
         'default-color' => 'ffffff',
         'default-image' => '',
@@ -35,4 +35,7 @@ add_action('after_setup_theme', function () {
 
 // Remove default wordpress features such as posts and comments
 require_once THEME_DIRECTORY . '/includes/remove-default-features.php';
+
+// Customizer API
+require_once THEME_DIRECTORY . '/includes/customizer-api/index.php';
 
