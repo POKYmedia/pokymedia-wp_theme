@@ -14,47 +14,39 @@
             >
                 <i class="fas fa-bars text-3xl text-gray-900 align-bottom"></i>
             </a>
+
         </div>
         <ul
                 id="navbarMenu"
-                class="block w-full md:flex items-center justify-center uppercase md:container mx-0 md:mx-auto shadow-inner-xl-top md:shadow-inner-none py-6 md:p-0 text-center md:text-left hidden"
+                class="block w-full md:container md:flex items-center justify-center uppercase mx-0 md:px-5 md:mx-auto shadow-inner-xl-top md:shadow-inner-none py-6 md:p-0 text-center md:text-left hidden"
         >
-            <li class="md:mr-12 lg:mr-20">
-                <a href="javascript:void(0)" class="py-2 md:py-0 block md:hover:bg-white hover:text-normal">
-                    <span class="border-accent"> O nás </span>
-                </a>
-            </li>
-            <li class="md:mr-12 lg:mr-20">
-                <a href="javascript:void(0)" class="py-2 md:py-0 block hover:text-normal">
-                    <span class="border-accent"> Rande </span>
-                </a>
-            </li>
-            <li class="md:mr-12 lg:mr-20 active">
-                <a href="javascript:void(0)" class="py-2 md:py-0 block hover:text-normal">
-                    <span class="border-accent">Svadobné</span>
-                </a>
-            </li>
-            <li class="md:mr-12 lg:mr-20 hidden md:block">
-                <div class="w-24">
-                    <?php get_template_part('partials/logo') ?>
-                </div>
-            </li>
-            <li class="md:mr-12 lg:mr-20">
-                <a href="javascript:void(0)" class="py-2 md:py-0 block hover:text-normal">
-                    <span class="border-accent">Rodinné</span>
-                </a>
-            </li>
-            <li class="md:mr-12 lg:mr-20">
-                <a href="javascript:void(0)" class="py-2 md:py-0 block hover:text-normal"
-                >
-                    <span class="border-accent"> Video</span>
-                </a>
-            </li>
-            <li>
-                <a href="javascript:void(0)" class="py-2 md:py-0 block hover:text-normal">
-                    <span class="border-accent"> Kontakt </span>
-                </a>
-            </li>
+            <?php
+            $navigation = wp_get_nav_menu_items('navigation');
+            global $wp;
+            $currentURL = trim(home_url($wp->request), '/');
+            ?>
+
+            <?php foreach ($navigation as $index => $navItem) :
+                $active_class = (trim($navItem->url, '/') == $currentURL) ? 'active' : '';
+                ?>
+
+                <li class="flex flex-1 items-center justify-between <?= $active_class ?>">
+                    <a href="<?= $navItem->url ?>"
+                       class="py-2 md:py-0 block mx-auto md:hover:bg-white hover:text-normal">
+                        <span class="border-accent"><?= $navItem->title ?></span>
+                    </a>
+                </li>
+
+                <!-- logo in the middle of the nav -->
+                <?php if (floor((count($navigation) - 1) / 2) == $index) : ?>
+                <li class="items-center justify-between hidden md:flex flex-1">
+                    <div class="w-24">
+                        <?php get_template_part('partials/logo') ?>
+                    </div>
+                </li>
+                <?php endif ?>
+
+            <?php endforeach ?>
         </ul>
     </nav>
 </header>

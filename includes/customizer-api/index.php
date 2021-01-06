@@ -11,7 +11,6 @@ add_action('customize_register', function ($wp_customize) use ($color_customizer
     $wp_customize->remove_section('header_image');
     $wp_customize->remove_section('background_image');
     $wp_customize->remove_section('static_front_page');
-    $wp_customize->remove_panel('nav_menus');
 
     // Register settings into customizer API
     $color_customizer_api->register_color_settings($wp_customize);
