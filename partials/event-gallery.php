@@ -1,7 +1,7 @@
 <section id="gallery" class="px-4 py-10 lg:px-0">
     <div class="container mx-auto">
 
-        <?php if (have_posts()) : global $wp_query ?>
+        <?php if (have_posts()) : global $wp_query; ?>
 
             <!-- first row start -->
             <div class="flex flex-col md:flex-row row">
@@ -9,7 +9,7 @@
                 <?php while (have_posts()) : the_post() ?>
 
                     <a href="<?php the_permalink() ?>" class="fill w-full row-item">
-                        <?php the_post_thumbnail(); ?>
+                        <?php the_post_thumbnail('small'); ?>
                     </a>
 
                     <?php

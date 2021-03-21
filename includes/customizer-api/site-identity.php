@@ -10,16 +10,16 @@ class Pokymedia_CustomizerAPI_Site_Identity_Section
         $this->fields = [
             [
                 'setting_key' => 'instagram_link',
-                'setting_name' => __('Instagram Page URL', 'textdomain'),
+                'setting_name' => __('Instagram Page URL', 'pokymedia'),
                 'setting_description' => ''
             ],
             [
                 'setting_key' => 'facebook_link',
-                'setting_name' => __('Facebook Page URL', 'textdomain'),
+                'setting_name' => __('Facebook Page URL', 'pokymedia'),
                 'setting_description' => ''
             ], [
                 'setting_key' => 'youtube_link',
-                'setting_name' => __('Youtube channel URL', 'textdomain'),
+                'setting_name' => __('Youtube channel URL', 'pokymedia'),
                 'setting_description' => ''
             ]
         ];

@@ -8,9 +8,12 @@
 
         <!-- hamburger menu -->
         <div class="md:hidden py-2 flex items-center flex-wrap">
+
+            <?php if (has_custom_logo()) : ?>
             <div class="w-16 inline-block my-1 ml-3">
-                <?php get_template_part('partials/logo') ?>
+                <?= get_custom_logo() ?>
             </div>
+            <?php endif ?>
 
             <a
                     id="navbarToggleBtn"
@@ -44,13 +47,15 @@
                 </li>
 
                 <!-- logo in the middle of the nav -->
-                <?php if (floor((count($navigation) - 1) / 2) == $index) : ?>
-                <li class="hidden md:inline-block">
-                    <div class="w-32">
-                        <?php get_template_part('partials/logo') ?>
-                    </div>
-                </li>
-            <?php endif ?>
+                <?php if (has_custom_logo()) : ?>
+                    <?php if (floor((count($navigation) - 1) / 2) == $index) : ?>
+                    <li class="hidden md:inline-block">
+                        <div class="w-32">
+                                <?= get_custom_logo() ?>
+                        </div>
+                    </li>
+                    <?php endif ?>
+                <?php endif ?>
 
             <?php endforeach ?>
         </ul>

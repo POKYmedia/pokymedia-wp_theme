@@ -2,11 +2,13 @@
 
 require_once 'colors.php';
 require_once 'site-identity.php';
+require_once 'images.php';
 
 $color_customizer_api = new Pokymedia_CustomizerAPI_Color_Section();
 $site_identity_customizer_api = new Pokymedia_CustomizerAPI_Site_Identity_Section();
+$images_customizer_api = new Pokymedia_CustomizerAPI_Images_Section();
 
-add_action('customize_register', function ($wp_customize) use ($color_customizer_api, $site_identity_customizer_api) {
+add_action('customize_register', function ($wp_customize) use ($color_customizer_api, $site_identity_customizer_api, $images_customizer_api) {
 
     $wp_customize->remove_section('header_image');
     $wp_customize->remove_section('background_image');
@@ -17,6 +19,9 @@ add_action('customize_register', function ($wp_customize) use ($color_customizer
 
     // Register site identity
     $site_identity_customizer_api->add_site_identity_fields($wp_customize);
+
+    // Register images
+    $images_customizer_api->add_fields($wp_customize);
 }, 90);
 
 add_action('wp_enqueue_scripts', function () use ($color_customizer_api) {

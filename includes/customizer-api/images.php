@@ -1,0 +1,47 @@
+<?php
+
+class Pokymedia_CustomizerAPI_Images_Section
+{
+
+    private $fields;
+
+    public function __construct()
+    {
+        $this->fields = [
+            [
+                'setting_key' => 'footer-image',
+                'setting_name' => __('Footer image', 'pokymedia'),
+                'setting_description' => __('Background image of the bottom part of the page', 'pokymedia'),
+            ],
+        ];
+    }
+
+    public function add_fields($wp_customize)
+    {
+        $wp_customize->add_section('images', array(
+            'title' => __('Images', 'pokymedia'),
+            'priority' => 40,
+        ));
+
+        foreach ($this->fields as $field) {
+            $wp_customize->add_setting(
+                $field['setting_key'],
+                array(
+                    'default' => '',
+                    'type' => 'theme_mod',
+                    'capability' => 'edit_theme_options'
+                )
+            );
+
+            $wp_customize->add_control(new WP_Customize_Image_Control(
+                $wp_customize,
+                $field['setting_key'],
+                array(
+                    'label' => $field['setting_name'],
+                    'description' => $field['setting_description'],
+                    'section' => 'images',
+                )
+            ));
+        }
+    }
+}
