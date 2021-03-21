@@ -1,0 +1,9 @@
+#jumbotron-carousel {
+  .overlay {
+    @apply w-full h-full bg-black opacity-50 absolute top-0 z-10;
+  }
+
+  .carousel-item {
+    @apply w-screen h-screen;
+  }
+}

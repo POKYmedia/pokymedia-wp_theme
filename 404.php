@@ -1,5 +1,5 @@
 <?php get_header() ?>
-<?php get_template_part('partials/navigation') ?>
+<?php get_template_part('partials/header') ?>
 
 <!-- TODO: full screen height -->
 <div class="flex flex-col w-screen h-1/2 justify-center items-center text-center py-20 text-gray-900">

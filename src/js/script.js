@@ -1,5 +1,10 @@
 import { initNavigation } from './navigation';
-import { initCarousel } from './carousel';
+import Carousel from './carousel';
 
 initNavigation();
-initCarousel();
+
+// jumbotron carousel
+new Carousel('#jumbotron-carousel', { userControlsEnabled: false, autoScroll: 3000 });
+
+// carousel for testimonials
+new Carousel('#testimonial-carousel');

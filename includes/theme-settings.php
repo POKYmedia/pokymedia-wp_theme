@@ -43,4 +43,3 @@ require_once THEME_DIRECTORY . '/includes/remove-default-features.php';
 
 // Customizer API
 require_once THEME_DIRECTORY . '/includes/customizer-api/index.php';
-

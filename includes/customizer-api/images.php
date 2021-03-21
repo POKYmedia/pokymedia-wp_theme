@@ -1,5 +1,7 @@
 <?php
 
+require_once 'controls/multi-image-control/index.php';
+
 class Pokymedia_CustomizerAPI_Images_Section
 {
 
@@ -8,6 +10,21 @@ class Pokymedia_CustomizerAPI_Images_Section
     public function __construct()
     {
         $this->fields = [
+            [
+                'setting_key' => 'header-images',
+                'control' => function ($wp_customize) {
+                    $wp_customize->add_control(
+                        new Multi_Image_Custom_Control(
+                            $wp_customize,
+                            'header-images',
+                            array(
+                                'label' => __('Header images', 'pokymedia'),
+                                'description' => __('Images on the top of the page', 'pokymedia'),
+                                'section' => 'images',
+                            )
+                        ));
+                },
+            ],
             [
                 'setting_key' => 'footer-image',
                 'setting_name' => __('Footer image', 'pokymedia'),
@@ -33,15 +50,19 @@ class Pokymedia_CustomizerAPI_Images_Section
                 )
             );
 
-            $wp_customize->add_control(new WP_Customize_Image_Control(
-                $wp_customize,
-                $field['setting_key'],
-                array(
-                    'label' => $field['setting_name'],
-                    'description' => $field['setting_description'],
-                    'section' => 'images',
-                )
-            ));
+            if (isset($field['control'])) {
+                $field['control']($wp_customize);
+            } else {
+                $wp_customize->add_control(new WP_Customize_Image_Control(
+                    $wp_customize,
+                    $field['setting_key'],
+                    array(
+                        'label' => $field['setting_name'],
+                        'description' => $field['setting_description'],
+                        'section' => 'images',
+                    )
+                ));
+            }
         }
     }
 }

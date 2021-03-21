@@ -3,7 +3,7 @@ $footer_style = 'background-color:transparent;';
 $footer_image = get_theme_mod('footer-image');
 
 if (isset($footer_image) && !empty($footer_image)) {
-    $footer_style = 'background-image: url(' . esc_url(wp_get_attachment_image_url($footer_image, 'large')) . ');';
+    $footer_style = 'background-image: url(' . esc_url($footer_image) . ');';
 }
 ?>
 

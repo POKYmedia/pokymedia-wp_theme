@@ -1,5 +1,5 @@
 <?php get_header() ?>
-<?php get_template_part('partials/navigation', null, ['jumbotron' => true]) ?>
+<?php get_template_part('partials/header', null, ['jumbotron' => true]) ?>
 
 <section>
     <h1><?php the_title() ?></h1>

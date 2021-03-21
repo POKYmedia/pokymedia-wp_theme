@@ -8,7 +8,7 @@ $testimonialLoop = new WP_Query([
 
 <?php if ($testimonialLoop->have_posts()) : ?>
 
-    <section class="block py-16 md:py-20 carousel-wrapper">
+    <section id="testimonial-carousel" class="block py-16 md:py-20 carousel-wrapper">
         <div class="carousel">
 
             <?php while ($testimonialLoop->have_posts()) : $testimonialLoop->the_post() ?>
