@@ -1,0 +1,28 @@
+.navigation li {
+	font-family: 'ITC Galliard Pro', serif;
+	font-size: 1.1rem;
+	font-weight: 300;
+
+	&:hover:not(.active) a span {
+		@apply border-b-2;
+		border-color: currentColor;
+	}
+
+	a span {
+		@apply pb-1;
+	}
+
+	&.active a {
+		@apply cursor-default;
+
+		span {
+			@apply pb-1 border-b-2;
+			border-color: currentColor;
+		}
+	}
+}
+
+.jumbotron {
+	background-position: top center;
+	background-size: cover;
+}

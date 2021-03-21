@@ -8,11 +8,11 @@ $quoteLoop = new WP_Query([
 
 <?php if ($quoteLoop->have_posts()) : ?>
     <?php while ($quoteLoop->have_posts()) : $quoteLoop->the_post() ?>
-        <section class="flex justify-center font-serif shadow-inner-xl-bottom p-16 sm:p-20 bg-primary">
+        <section class="flex justify-center p-10 sm:p-12 handwritten">
             <div class="container">
                 <div class="w-full md:w-4/6 mx-auto relative">
-                    <span class="text-6xl text-accent quote-mark">&quot;</span>
-                    <blockquote class="text-xl">
+                    <span class="quote-mark">&quot;</span>
+                    <blockquote class="text-5xl">
                         <?php echo get_the_content() ?>
                     </blockquote>
 
@@ -20,8 +20,8 @@ $quoteLoop = new WP_Query([
                     $author = get_post_meta(get_the_ID(), 'pokymedia-quote_author', true);
                     if (isset($author) && !empty($author)): ?>
 
-                        <small class="block w-full text-right font-bold text-accent mt-2 text-xl"
-                        >~<span class="font-sans">
+                        <small class="block w-full text-right font-bold mt-2 text-3xl"
+                        >~<span>
                                 <?php echo $author ?>
                             </span>
                         </small>

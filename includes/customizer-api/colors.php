@@ -7,20 +7,6 @@ class Pokymedia_CustomizerAPI_Color_Section
     public function __construct()
     {
         $this->colors = [
-            // Navbar color
-            [
-                'setting_key' => 'navbar_background_color',
-                'setting_name' => __('Navbar background color', 'pokymedia'),
-                'setting_description' => __('Sets the background color of the navbar.', 'pokymedia'),
-                'default_color' => 'ffffff',
-                'style_callback_fn' => function ($hex) {
-                    ?>
-                    .navbar-background {
-                    background-color: <?php echo $hex; ?>
-                    }
-                    <?php
-                }
-            ],
 
             // Text color
             [
@@ -36,63 +22,10 @@ class Pokymedia_CustomizerAPI_Color_Section
                     }
 
                     .hover\:text-normal:hover {
-                    color: <?php echo adjustBrightness($hex, 0.2) ?>
+                    color: <?php echo adjust_brightness($hex, 0.2) ?>
                     }
                     <?php
                 }
-            ],
-
-            // Primary color
-            [
-                'setting_key' => 'primary_color',
-                'setting_name' => __('Primary color', 'pokymedia'),
-                'setting_description' => __('Primary color - shows up as background in testimonials and quotes.', 'pokymedia'),
-                'default_color' => 'fbf4e9',
-                'style_callback_fn' => function ($hex) {
-                    ?>
-                    .bg-primary {
-                    background-color: <?php echo $hex; ?>
-                    }
-                    <?php
-                },
-            ],
-
-            // Accent color
-            [
-                'setting_key' => 'accent_color',
-                'setting_name' => __('Accent color', 'pokymedia'),
-                'setting_description' => __('Color of the accent, e.g. when hovering in nav menu.', 'pokymedia'),
-                'default_color' => 'd8b863',
-                'style_callback_fn' => function ($hex) {
-                    ?>
-                    .border-accent {
-                    border-color: <?php echo $hex; ?>
-                    }
-
-                    .text-accent {
-                    color: <?php echo $hex; ?>
-                    }
-                    <?php
-                },
-            ],
-
-            // Footer background color
-            [
-                'setting_key' => 'footer_background_color',
-                'setting_name' => __('Footer background color', 'pokymedia'),
-                'setting_description' => __('Background color of the bottom part of the page.', 'pokymedia'),
-                'default_color' => '1a202c',
-                'style_callback_fn' => function ($hex) {
-                    ?>
-                    .bg-footer {
-                    background-color: <?php echo $hex; ?>
-                    }
-
-                    .text-footer-inverse {
-                    color: <?php echo $hex; ?>
-                    }
-                    <?php
-                },
             ],
 
             // Footer text color
@@ -107,20 +40,24 @@ class Pokymedia_CustomizerAPI_Color_Section
                     color: <?php echo $hex; ?>
                     }
 
-                    .hover\:text-footer {
-                    color: <?php echo adjustBrightness($hex, -0.1); ?>
+                    .hover\:text-footer:hover {
+                        color: <?php echo adjust_brightness($hex, -0.1); ?>
                     }
 
                     .bg-text-footer {
                     background-color: <?php echo $hex; ?>
                     }
 
-                    .bg-footer-inverse {
-                    background-color: <?php echo $hex; ?>
+                    .hover\:bg-text-footer:hover {
+                    background-color: <?php echo adjust_brightness($hex, -0.1); ?>
                     }
 
-                    .hover\:bg-text-footer:hover {
-                    background-color: <?php echo adjustBrightness($hex, -0.1); ?>
+                    .text-footer-inverse {
+                        color: <?php echo invert_color($hex); ?>
+                    }
+
+                    .bg-footer-inverse {
+                        background-color: <?php echo $hex; ?>
                     }
                     <?php
                 },

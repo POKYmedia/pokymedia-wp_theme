@@ -1,0 +1,20 @@
+@font-face {
+	font-family: 'ITC Galliard Pro';
+	src: url('../fonts/ITC-Gallard-Pro-Roman.otf');
+	format: 'opentype';
+}
+
+@font-face {
+	font-family: 'Turbinado Light Pro';
+	src: url('../fonts/Turbinado-Light-Pro.otf');
+	format: 'opentype';
+}
+
+.handwritten {
+	font-family: 'Turbinado Light Pro', fantasy;
+	font-size: 2.5rem;
+}
+
+.text-2x {
+	font-size: 200%;
+}

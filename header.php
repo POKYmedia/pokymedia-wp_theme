@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="<?php language_attributes(); ?>">
+<html <?php language_attributes(); ?>>
 <head>
     <meta charset="utf-8"/>
     <meta name="referrer" content="no-referrer"/>
@@ -34,6 +34,4 @@
     <link rel="icon" type="image/png" href="<?php echo get_site_icon_url() ?>"/>
     <?php wp_head(); ?>
 </head>
-<body <?php body_class(['bg-white']); ?>>
-
-<?php get_template_part('partials/navigation') ?>
+<body <?php body_class('bg-white') ?>>

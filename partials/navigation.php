@@ -1,8 +1,13 @@
-<header>
-    <!-- TODO: sticky (absolute) -->
-    <nav class="navigation md:py-2 sticky top-0 w-full z-10 shadow-xl-bottom navbar-background">
-        <div class="md:hidden py-2 flex items-center flex-wrap">
+<header
+<?php if (isset($args['jumbotron'])): ?>
+        class="w-screen h-screen jumbotron text-white"
+        style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('<?= THEME_DIRECTORY_URI . '/dist/assets/images/header-bg.png' ?>')"
+<?php endif; ?>
+/>
+    <nav class="navigation md:py-4 w-full">
 
+        <!-- hamburger menu -->
+        <div class="md:hidden py-2 flex items-center flex-wrap">
             <div class="w-16 inline-block my-1 ml-3">
                 <?php get_template_part('partials/logo') ?>
             </div>
@@ -14,11 +19,12 @@
             >
                 <i class="fas fa-bars text-3xl text-gray-900 align-bottom"></i>
             </a>
-
         </div>
+
+        <!-- navigation -->
         <ul
                 id="navbarMenu"
-                class="block w-full md:container md:flex items-center justify-center uppercase mx-0 md:px-5 md:mx-auto shadow-inner-xl-top md:shadow-inner-none py-6 md:p-0 text-center md:text-left hidden"
+                class="block w-full md:container md:flex items-center justify-between uppercase mx-0 md:px-5 md:mx-auto shadow-inner-xl-top md:shadow-inner-none py-6 md:p-0 text-center md:text-left hidden"
         >
             <?php
             $navigation = wp_get_nav_menu_items('navigation');
@@ -30,21 +36,21 @@
                 $active_class = (trim($navItem->url, '/') == $currentURL) ? 'active' : '';
                 ?>
 
-                <li class="flex flex-1 items-center justify-between <?= $active_class ?>">
+                <li class="<?= $active_class ?>">
                     <a href="<?= $navItem->url ?>"
-                       class="py-2 md:py-0 block mx-auto md:hover:bg-white hover:text-normal">
-                        <span class="border-accent"><?= $navItem->title ?></span>
+                       class="py-2 md:py-0 block mx-auto">
+                        <span><?= $navItem->title ?></span>
                     </a>
                 </li>
 
                 <!-- logo in the middle of the nav -->
                 <?php if (floor((count($navigation) - 1) / 2) == $index) : ?>
-                <li class="items-center justify-between hidden md:flex flex-1">
-                    <div class="w-24">
+                <li class="hidden md:inline-block">
+                    <div class="w-32">
                         <?php get_template_part('partials/logo') ?>
                     </div>
                 </li>
-                <?php endif ?>
+            <?php endif ?>
 
             <?php endforeach ?>
         </ul>

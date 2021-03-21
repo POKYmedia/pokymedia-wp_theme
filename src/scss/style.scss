@@ -1,0 +1,21 @@
+// fontawesome
+$fa-font-path: '../fonts';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+@import '~@fortawesome/fontawesome-free/scss/brands';
+
+//tailwind
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// POKYmedia
+@import 'typography';
+@import 'variables';
+@import 'general';
+@import 'header';
+@import 'quotes';
+@import 'gallery';
+@import 'shadow';
+@import 'carousel';

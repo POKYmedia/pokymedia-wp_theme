@@ -2,7 +2,6 @@
 
 $disabled_menu_pages = [
     'edit.php', // posts,
-    'edit.php?post_type=page', // pages
     'edit-comments.php', // comments
     'upload.php' // media
 ];

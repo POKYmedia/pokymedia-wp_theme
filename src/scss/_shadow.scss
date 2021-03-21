@@ -1,0 +1,25 @@
+$shadow-bottom: 0 7px 9px -7px rgba(0, 0, 0, 0.15);
+$shadow-inset-top: inset 0 7px 9px -7px rgba(0, 0, 0, 0.15);
+$shadow-inset-bottom: inset 0 -7px 9px -7px rgba(0, 0, 0, 0.15);
+
+.shadow-xl-bottom {
+	box-shadow: $shadow-bottom;
+}
+
+.shadow-inner-xl-top {
+	box-shadow: $shadow-inset-top;
+}
+
+.shadow-inner-xl-bottom {
+	box-shadow: $shadow-inset-bottom;
+}
+
+.shadow-inner-xl {
+	box-shadow: $shadow-inset-top, $shadow-inset-bottom;
+}
+
+@screen md {
+	.md\:shadow-inner-none {
+		box-shadow: none;
+	}
+}

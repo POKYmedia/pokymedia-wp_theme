@@ -1,5 +1,17 @@
-# platform specific
-.DS_Store
+# Dependencies
+node_modules/
+vendor/
 
-# code editor
-.idea
+# Platform specific
+.DS_Store
+Thumbs.db
+
+# IDE's
+.idea/
+.vscode/
+
+# Environment file
+.env
+
+# Built files
+dist/
