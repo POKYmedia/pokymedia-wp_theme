@@ -1,0 +1,17 @@
+.o-nas {
+	@apply font-serif pt-16;
+
+	h2 {
+		@apply text-4xl mb-6;
+	}
+
+	p {
+		@apply text-xl leading-8 tracking-wide;
+	}
+
+	.wp-block-column {
+		p {
+			@apply sm:px-0 md:px-6 lg:px-12 xl:px-24 text-justify;
+		}
+	}
+}

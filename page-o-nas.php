@@ -5,6 +5,10 @@
     <p class="handwritten text-2x leading-36 tracking-wider">
         <?= get_bloginfo('description') ?>
     </p>
+
+    <div class="o-nas container">
+        <?php the_content(); ?>
+    </div>
 </div>
 
 <?php get_footer() ?>
