@@ -26,10 +26,10 @@ class Multi_Image_Custom_Control extends WP_Customize_Control
             <?= $this->description ?>
         </span>
         <div>
-            <ul class='images'></ul>
+            <ul id="multi-image-control" class="image-list"></ul>
         </div>
         <div class='actions'>
-            <a class="button-secondary upload">Add</a>
+            <a class="button-secondary add-image"><?= __('Add image', 'pokymedia') ?></a>
         </div>
 
         <input class="wp-editor-area" id="images-input" type="hidden" <?php $this->link(); ?>>

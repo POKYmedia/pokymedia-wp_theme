@@ -29,13 +29,15 @@ export default class Carousel {
 		this.items = document.querySelectorAll(`${this.root} ${this.options.carouselItemSelector}`);
 		this.totalItems = this.items.length;
 
-		// set initial classes
-		this.items[this.totalItems - 1].classList.add('prev');
-		this.items[0].classList.add('active');
-		this.items[1].classList.add('next');
+		if (this.totalItems > 1) {
+			// set initial classes
+			this.items[this.totalItems - 1].classList.add('prev');
+			this.items[0].classList.add('active');
+			this.items[1].classList.add('next');
 
-		if (this.options.autoScroll > 0) {
-			this.setAutoScrollTimeout();
+			if (this.options.autoScroll > 0) {
+				this.setAutoScrollTimeout();
+			}
 		}
 
 		if (this.options.userControlsEnabled) {
@@ -43,8 +45,13 @@ export default class Carousel {
 			const next = document.querySelectorAll(`${this.root} ${this.options.nextButtonSelector}`)[0];
 			const prev = document.querySelectorAll(`${this.root} ${this.options.prevButtonSelector}`)[0];
 
-			next.addEventListener('click', this.moveNext.bind(this));
-			prev.addEventListener('click', this.movePrev.bind(this));
+			if (this.totalItems > 1) {
+				next.addEventListener('click', this.moveNext.bind(this));
+				prev.addEventListener('click', this.movePrev.bind(this));
+			} else {
+				prev.style.display = 'none';
+				next.style.display = 'none';
+			}
 		}
 	}
 
@@ -106,7 +113,7 @@ export default class Carousel {
 				oldPrevious = slide - 2,
 				oldNext = slide + 2;
 
-			if (this.totalItems - 1 >= 3) {
+			if (this.totalItems - 1 >= 2) {
 				// Checks if the new potential slide is out of bounds and sets slide numbers
 				if (newPrevious <= 0) {
 					oldPrevious = this.totalItems - 1;

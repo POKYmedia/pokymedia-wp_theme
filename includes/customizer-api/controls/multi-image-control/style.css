@@ -1,22 +1,38 @@
-.image-list {
-	width: 100%;
-	height: 150px;
-	margin-top:1em;
-	background-position: center;
-	background-size: cover;
-	background-repeat: no-repeat;
-	-webkit-box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(0, 0, 0, 0.05);
-	box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(0, 0, 0, 0.05);
-	background: #eee;
-	cursor: pointer;
-	vertical-align: middle;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	overflow: hidden;
-	position: relative;
+#multi-image-control .image-list-item {
+    width: 100%;
+    height: 150px;
+    margin-top: 1em;
+    position: relative;
 }
 
-.image-list:hover {
-	opacity: 0.65;
+#multi-image-control .image-wrapper {
+    height: 100%;
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#multi-image-control .image-wrapper img {
+    min-height: 100%;
+    min-width: 100%;
+    flex-grow: 0;
+    object-fit: cover;
+}
+
+.remove-photo {
+    position: absolute;
+    right: -10px;
+    line-height: 1em;
+    top: -10px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 0.3em 0.5em;
+}
+
+.remove-photo:hover {
+    background: rgba(255, 0, 0, 0.7);
 }

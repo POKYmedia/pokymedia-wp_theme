@@ -1,38 +1,69 @@
 (function ($) {
 	$(window).load(function () {
-		var begin_attachment_string = $('#images-input').val();
-		var begin_attachment_array = begin_attachment_string.split(',');
-		for (var i = 0; i < begin_attachment_array.length; i++) {
-			if (begin_attachment_array[i] != '') {
-				$('.images').append("<li class='image-list'><img src='" + begin_attachment_array[i] + "'></li>");
-			}
+		const list = '.image-list';
+		const input = `#images-input`;
+		const addImageButton = '.add-image';
+		const removeButton = '.remove-photo';
+
+		function image_template(url) {
+			return `
+			<li class='image-list-item'>
+					<div class="image-wrapper">
+						<img src="${url}">
+					</div>
+					<button class="remove-photo">&times</button>
+				</li>
+			`;
 		}
-		$('.button-secondary.upload').click(function () {
-			var custom_uploader = (wp.media.frames.file_frame = wp.media({
+
+		// render all images in list
+		(function init() {
+			const attachmentsString = $(input).val();
+			const currentAttachments = attachmentsString === '' ? [] : attachmentsString.split(',');
+
+			currentAttachments.forEach(function (attachement) {
+				$(list).append(image_template(attachement));
+			});
+		})();
+
+		// add images
+		$(addImageButton).on('click', function () {
+			const custom_uploader = (wp.media.frames.file_frame = wp.media({
 				multiple: true,
 			}));
 
 			custom_uploader.on('select', function () {
-				var selection = custom_uploader.state().get('selection');
-				var attachments = [];
-				selection.map(function (attachment) {
+				const selection = custom_uploader.state().get('selection');
+				const attachments = [];
+
+				selection.forEach(function (attachment) {
 					attachment = attachment.toJSON();
-					$('.images').append("<li class='image-list'><img src='" + attachment.url + "'></li>");
+					$(list).append(image_template(attachment.url));
 					attachments.push(attachment.url);
-					//
 				});
-				var attachment_string = attachments.join() + ',' + $('#images-input').val();
-				$('#images-input').val(attachment_string).trigger('change');
+
+				const attachmentsString = $(input).val();
+				const currentAttachments = attachmentsString === '' ? [] : attachmentsString.split(',');
+
+				const newAttachments = [...attachments, ...currentAttachments];
+
+				$(input).val(newAttachments.join(',')).trigger('change');
 			});
+
 			custom_uploader.open();
 		});
 
-		$('.images').click(function () {
-			var img_src = $(event.target).find('img').attr('src');
+		$(removeButton).on('click', function (event) {
+			const imgSrc = $(event.target).siblings().find('img').attr('src')
 			$(event.target).closest('li').remove();
-			var attachment_string = $('#images-input').val();
-			attachment_string = attachment_string.replace(img_src + ',', '');
-			$('#images-input').val(attachment_string).trigger('change');
+
+			const attachmentsString = $(input).val();
+			const currentAttachments = attachmentsString === '' ? [] : attachmentsString.split(',');
+
+			// filter out image
+			const newAttachments = currentAttachments.filter(attachment => attachment !== imgSrc);
+
+			$(input).val(newAttachments.join(',')).trigger('change');
 		});
 	});
 })(jQuery);
