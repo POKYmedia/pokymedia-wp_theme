@@ -5,7 +5,7 @@ $jumbotron_enabled = isset($args['jumbotron']) && ($args['jumbotron'] == true)
 
     <?php if ($jumbotron_enabled): ?>
 
-        <?php get_template_part('partials/jumbotron') ?>
+        <?php get_template_part('partials/jumbotron', null, $args) ?>
 
         <div class="absolute top-0 w-full text-white">
             <?php get_template_part('partials/navigation') ?>

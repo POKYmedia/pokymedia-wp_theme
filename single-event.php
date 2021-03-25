@@ -1,10 +1,21 @@
 <?php get_header() ?>
-<?php get_template_part('partials/header', null, ['jumbotron' => true]) ?>
+<?php
+$thumbnail_image = get_the_post_thumbnail_url(get_the_ID());
+$title = get_the_title();
+
+get_template_part(
+    'partials/header',
+    null,
+    [
+        'jumbotron' => true,
+        'images' => [$thumbnail_image],
+        'title' => $title
+    ]
+)
+?>
 
 <section>
-    <h1><?php the_title() ?></h1>
-    <p><?php the_content() ?></p>
-
+<!--    <p>--><?php //the_content() ?><!--</p>-->
     <?php $images = get_post_meta(get_the_ID(), 'vdw_gallery_id', true); ?>
 
     <?php

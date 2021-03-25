@@ -21,7 +21,7 @@
     <!-- navigation -->
     <ul
             id="navbarMenu"
-            class="block w-full md:container md:flex items-center justify-between uppercase mx-0 md:px-5 md:mx-auto shadow-inner-xl-top md:shadow-inner-none py-6 md:p-0 text-center md:text-left hidden"
+            class="block w-full md:container md:flex items-center justify-between uppercase mx-0 md:mx-auto shadow-inner-xl-top md:shadow-inner-none py-6 md:py-0 text-center md:text-left hidden"
     >
         <?php
         $navigation = wp_get_nav_menu_items('navigation');
