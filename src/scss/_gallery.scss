@@ -48,3 +48,16 @@
 		}
 	}
 }
+
+#mosaic-gallery {
+	&.masonry,
+	.masonry {
+		@apply flex w-full;
+		flex-flow: row wrap;
+	}
+
+	.masonry-brick {
+		@apply flex-auto h-64 mt-3 mr-3;
+		min-width: 16rem;
+	}
+}
