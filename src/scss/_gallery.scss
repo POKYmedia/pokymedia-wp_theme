@@ -50,14 +50,70 @@
 }
 
 #mosaic-gallery {
-	&.masonry,
-	.masonry {
-		@apply flex w-full;
-		flex-flow: row wrap;
+	@mixin sm_full_md_half {
+		@apply w-full;
+		box-sizing: border-box;
+
+		@screen md {
+			width: 49.5%;
+		}
 	}
 
-	.masonry-brick {
-		@apply flex-auto h-64 mt-3 mr-3;
-		min-width: 16rem;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+
+	> figure {
+		margin-bottom: 1%;
+	}
+
+	.height-400 {
+		height: 400px;
+	}
+
+	.height-600 {
+		height: 600px;
+	}
+
+	.height-800 {
+		height: 600px;
+	}
+
+	.width-4 {
+		@apply w-full;
+	}
+
+	.width-3 {
+		@include sm_full_md_half;
+
+		@screen lg {
+			width: 74.5%;
+		}
+	}
+
+	.width-2 {
+		@include sm_full_md_half;
+
+		@screen lg {
+			width: 49.5%;
+		}
+	}
+
+	.width-1 {
+		@include sm_full_md_half;
+
+		@screen lg {
+			width: 24.5%;
+		}
+	}
+
+	img {
+		transition: transform 0.5s;
+
+		&:hover {
+			opacity: 0.65;
+			transform: scale(1.05);
+			@apply cursor-pointer;
+		}
 	}
 }

@@ -1,6 +1,6 @@
 <?php
 $footer_style = 'background-color:transparent;';
-$footer_image = wp_get_attachment_image_url(get_theme_mod('footer-image'), '1536x1536');
+$footer_image = wp_get_attachment_image_url(get_theme_mod('footer-image'), 'large');
 
 if (isset($footer_image) && !empty($footer_image)) {
     $footer_style = 'background-image: url(' . esc_url($footer_image) . ');';

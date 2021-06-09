@@ -9,7 +9,7 @@
                 <?php while (have_posts()) : the_post() ?>
 
                     <a href="<?php the_permalink() ?>" class="fill w-full row-item">
-                        <?php the_post_thumbnail('small'); ?>
+                        <?php the_post_thumbnail('large'); ?>
                     </a>
 
                     <?php

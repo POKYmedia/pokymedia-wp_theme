@@ -1,10 +1,16 @@
-import { initNavigation } from './navigation';
+import $ from 'jquery';
 import Carousel from './carousel';
+import { initNavigation } from './navigation';
+import { initPhotoSwipe } from './photoswipe';
 
-initNavigation();
+$(document).ready(() => {
+	initNavigation();
 
-// jumbotron carousel
-new Carousel('#jumbotron-carousel', { userControlsEnabled: false, autoScroll: 3000 });
+	initPhotoSwipe('#mosaic-gallery');
 
-// carousel for testimonials
-new Carousel('#testimonial-carousel');
+	// jumbotron carousel
+	new Carousel('#jumbotron-carousel', { userControlsEnabled: false, autoScroll: 3000 });
+
+	// carousel for testimonials
+	new Carousel('#testimonial-carousel');
+});

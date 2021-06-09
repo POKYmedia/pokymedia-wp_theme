@@ -6,6 +6,5 @@ add_action('wp_enqueue_scripts', function () {
     wp_enqueue_style('poky-style', THEME_DIRECTORY_URI . '/dist/css/style.css');
 
     // scripts
-    wp_enqueue_script('poky-script', THEME_DIRECTORY_URI . '/dist/js/script.js', null, null, true);
+    wp_enqueue_script('poky-script', THEME_DIRECTORY_URI . '/dist/js/script.js', ['jquery'], null, true);
 }, 1);
-

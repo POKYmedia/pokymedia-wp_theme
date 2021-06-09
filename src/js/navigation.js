@@ -1,5 +1,3 @@
-import { initCarousel } from './carousel';
-
 let opened = false;
 const navbarToggle = document.getElementById('navbarToggleBtn');
 const navbarMenu = document.getElementById('navbarMenu');

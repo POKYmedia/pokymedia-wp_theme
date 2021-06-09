@@ -27,3 +27,9 @@ mix.setPublicPath('dist')
 		files: ['./**/*.css', './**/*.js'],
 	})
 	.disableNotifications();
+
+mix.webpackConfig({
+	externals: {
+		jquery: 'jQuery',
+	},
+});
