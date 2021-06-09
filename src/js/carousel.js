@@ -19,7 +19,9 @@ export default class Carousel {
 			...options,
 		};
 
-		this.init();
+		if (document.querySelector(root) > 0) {
+			this.init();
+		}
 
 		// Set moving to false now that the carousel is ready
 		this.moving = this.options.moving;
