@@ -34,4 +34,4 @@
     <link rel="icon" type="image/png" href="<?php echo get_site_icon_url() ?>"/>
     <?php wp_head(); ?>
 </head>
-<body <?php body_class('bg-white') ?>>
+<body <?php body_class('bg-white overflow-x-hidden') ?>>

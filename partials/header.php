@@ -12,6 +12,6 @@ $jumbotron_enabled = isset($args['jumbotron']) && ($args['jumbotron'] == true)
         </div>
 
     <?php else: ?>
-        <?php get_template_part('partials/navigation') ?>
+        <?php get_template_part('partials/navigation', null, ['dark' => true]) ?>
     <?php endif; ?>
 </header>
