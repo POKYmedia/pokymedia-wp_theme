@@ -16,7 +16,7 @@ if (isset($args['images']) && !empty($args['images'])) {
                     <img
                             class="w-full h-full"
                             src=" <?= $image ?>"
-                            alt=""
+                            loading="lazy"
                     />
                 </div>
             <?php endforeach; ?>
