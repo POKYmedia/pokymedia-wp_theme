@@ -29,28 +29,29 @@
         $currentURL = trim(home_url($wp->request), '/');
         ?>
 
-        <?php foreach ($navigation as $index => $navItem) :
-            $active_class = (trim($navItem->url, '/') == $currentURL) ? 'active' : '';
+        <?php if (true == $navigation): ?>
+            <?php foreach ($navigation as $index => $navItem) :
+                $active_class = (trim($navItem->url, '/') == $currentURL) ? 'active' : '';
             ?>
 
-            <li class="<?= $active_class ?>">
-                <a href="<?= $navItem->url ?>"
-                   class="py-2 md:py-0 block mx-auto">
-                    <span><?= $navItem->title ?></span>
-                </a>
-            </li>
-
-            <!-- logo in the middle of the nav -->
-            <?php if (has_custom_logo()) : ?>
-            <?php if (floor((count($navigation) - 1) / 2) == $index) : ?>
-                <li class="hidden md:inline-block">
-                    <div class="w-32">
-                        <?= get_custom_logo() ?>
-                    </div>
+                <li class="<?= $active_class ?>">
+                    <a href="<?= $navItem->url ?>"
+                       class="py-2 md:py-0 block mx-auto">
+                        <span><?= $navItem->title ?></span>
+                    </a>
                 </li>
-            <?php endif ?>
-        <?php endif ?>
 
-        <?php endforeach ?>
+                <!-- logo in the middle of the nav -->
+                <?php if (has_custom_logo()) : ?>
+                    <?php if (floor((count($navigation) - 1) / 2) == $index) : ?>
+                        <li class="hidden md:inline-block">
+                            <div class="w-32">
+                                <?= get_custom_logo() ?>
+                            </div>
+                        </li>
+                    <?php endif?>
+               <?php endif ?>
+            <?php endforeach ?>
+       <?php endif ?>
     </ul>
 </nav>
