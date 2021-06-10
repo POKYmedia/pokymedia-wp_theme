@@ -21,6 +21,10 @@ module.exports = {
 				84: '21rem',
 				96: '24rem',
 				108: '27rem',
+				112: '28rem',
+				128: '32rem',
+				144: '36rem',
+				160: '40rem',
 			},
 			lineHeight: {
 				12: '2.75rem',

@@ -25,7 +25,7 @@ if (isset($args['images']) && !empty($args['images'])) {
             <div class="item bg-black"></div>
         <?php endif; ?>
 
-        <div class="w-full container mx-auto relative z-20 -top-72">
+        <div class="w-full container mx-auto relative z-20 -top-36 md:-top-72">
             <?php if (isset($args['title'])): ?>
                 <div class="bg-white-transparent-70 py-8 relative -top-72">
                     <p class="text-center text-3xl text-white font-serif"><?= $args['title'] ?></p>

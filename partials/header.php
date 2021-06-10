@@ -1,7 +1,7 @@
 <?php
 $jumbotron_enabled = isset($args['jumbotron']) && ($args['jumbotron'] == true)
 ?>
-<header class="relative w-full <?= $jumbotron_enabled ? 'h-full' : '' ?>">
+<header class="relative w-full <?= $jumbotron_enabled ? 'h-144 md:h-full' : '' ?>">
 
     <?php if ($jumbotron_enabled): ?>
 
