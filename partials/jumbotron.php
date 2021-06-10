@@ -7,6 +7,7 @@ if (isset($args['images']) && !empty($args['images'])) {
 ?>
 
 <div id="jumbotron-carousel" class="carousel-wrapper h-full w-full">
+
     <div class="carousel w-full h-full">
 
         <!-- Wrapper for slides -->
@@ -24,11 +25,21 @@ if (isset($args['images']) && !empty($args['images'])) {
             <div class="item bg-black"></div>
         <?php endif; ?>
 
-        <?php if (isset($args['title'])): ?>
-            <div class="w-full container relative bottom-4/5 mx-auto z-20 bg-white-transparent-70 py-8">
-                <p class="text-center text-3xl text-white font-serif"><?= $args['title'] ?></p>
-            </div>
-        <?php endif; ?>
+        <div class="w-full container mx-auto relative z-20 -top-72">
+            <?php if (isset($args['title'])): ?>
+                <div class="bg-white-transparent-70 py-8 relative -top-72">
+                    <p class="text-center text-3xl text-white font-serif"><?= $args['title'] ?></p>
+                </div>
+            <?php endif; ?>
+
+            <a
+                    id="scroll-bottom"
+                    href="javascript:void(0)"
+                    class="hidden md:flex justify-center text-white text-4xl cursor-pointer <?= isset($args['title']) ? 'relative -top-36' : ''?>"
+            >
+                <i class="fas fa-angle-down"></i>
+            </a>
+        </div>
 
         <!-- overlay -->
         <div class="overlay"></div>

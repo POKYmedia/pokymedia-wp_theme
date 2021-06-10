@@ -19,3 +19,15 @@ export function initScrollToTop(selector) {
 		);
 	});
 }
+
+export function initScrollToBottom(selector) {
+	$(selector).click(function () {
+		// When arrow is clicked
+		$('body,html').animate(
+			{
+				scrollTop: 750,
+			},
+			1000
+		);
+	});
+}

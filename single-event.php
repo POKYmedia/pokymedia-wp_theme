@@ -82,7 +82,7 @@ function get_random_mosaic_dimension_classes()
 </div>
 
 <a
-        href="javascript:void()"
+        href="javascript:void(0)"
         id="scroll-to-top"
 >
     <i class="fas fa-chevron-up"></i>
