@@ -49,71 +49,27 @@
 	}
 }
 
-#mosaic-gallery {
-	@mixin sm_full_md_half {
-		@apply w-full;
-		box-sizing: border-box;
+.single-event {
+	.wp-block-gallery {
+		img {
+			transition: transform 0.5s;
 
-		@screen md {
-			width: 49.5%;
+			&:hover {
+				opacity: 0.85;
+				transform: scale(1.005);
+				@apply cursor-pointer;
+			}
 		}
-	}
 
-	display: flex;
-	justify-content: space-between;
-	flex-wrap: wrap;
+		&.is-cropped {
+			.blocks-gallery-grid {
+				width: 100%;
 
-	> figure {
-		margin-bottom: 1%;
-	}
-
-	.height-400 {
-		height: 400px;
-	}
-
-	.height-600 {
-		height: 600px;
-	}
-
-	.height-800 {
-		height: 600px;
-	}
-
-	.width-4 {
-		@apply w-full;
-	}
-
-	.width-3 {
-		@include sm_full_md_half;
-
-		@screen lg {
-			width: 74.5%;
-		}
-	}
-
-	.width-2 {
-		@include sm_full_md_half;
-
-		@screen lg {
-			width: 49.5%;
-		}
-	}
-
-	.width-1 {
-		@include sm_full_md_half;
-
-		@screen lg {
-			width: 24.5%;
-		}
-	}
-
-	img {
-		transition: transform 0.5s;
-
-		&:hover {
-			opacity: 0.65;
-			transform: scale(1.05);
-			@apply cursor-pointer;
+				a,
+				img {
+					@apply min-h-full min-w-full flex-grow-0 object-cover;
+				}
+			}
 		}
 	}
 }
