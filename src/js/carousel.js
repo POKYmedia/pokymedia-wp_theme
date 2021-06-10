@@ -19,7 +19,7 @@ export default class Carousel {
 			...options,
 		};
 
-		if (document.querySelector(root) > 0) {
+		if (document.querySelector(root)) {
 			this.init();
 		}
 
