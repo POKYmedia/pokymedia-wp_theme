@@ -98,6 +98,6 @@ blockquote {
 	}
 }
 
-p {
-	@apply text-xl;
+p:not(.handwritten p) {
+	@apply text-xl mb-3;
 }

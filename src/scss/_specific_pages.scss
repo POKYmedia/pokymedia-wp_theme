@@ -1,0 +1,24 @@
+.kontakt {
+	form {
+		@apply flex flex-col items-center shadow-xl bg-gray-200 rounded py-5;
+
+		p {
+            @apply w-4/5 mb-0;
+
+			label {
+				@apply text-gray-700 text-sm font-sans;
+			}
+
+			input[type='text'],
+			input[type='email'],
+			textarea {
+				@apply bg-gray-100 rounded w-full shadow-sm;
+				padding: 1em;
+			}
+
+			input[type='submit'] {
+				@apply text-gray-50 bg-gray-700 hover:bg-gray-600 cursor-pointer rounded font-sans text-lg w-full py-2 mt-5;
+			}
+		}
+	}
+}

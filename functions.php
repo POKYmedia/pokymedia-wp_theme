@@ -4,6 +4,13 @@ define('THEME_DIRECTORY', get_template_directory());
 define('THEME_DIRECTORY_URI', get_template_directory_uri());
 
 /**
+ * Load translation
+ */
+add_action('plugins_loaded', function () {
+    load_theme_textdomain('pokymedia');
+});
+
+/**
  * Helper functions
  */
 require_once THEME_DIRECTORY . '/includes/helper-functions.php';
