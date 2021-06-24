@@ -6,4 +6,3 @@
 </div>
 
 <?php get_footer(null, ['hide' => ['contact']]) ?>
-
