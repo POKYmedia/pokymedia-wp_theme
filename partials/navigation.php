@@ -1,5 +1,17 @@
 <?php
-    $isDarkTheme = isset($args['dark']) && ($args['dark'] == true)
+    $isDarkTheme = isset($args['dark']) && ($args['dark'] == true);
+
+    // white logo is invisible on light background, use the dark variant there
+    $darkLogoId = get_theme_mod('dark_logo');
+    if ($isDarkTheme && $darkLogoId) {
+        $logo = sprintf(
+            '<a href="%s" class="custom-logo-link" rel="home">%s</a>',
+            esc_url(home_url('/')),
+            wp_get_attachment_image($darkLogoId, 'full', false, ['class' => 'custom-logo', 'alt' => get_bloginfo('name', 'display')])
+        );
+    } else {
+        $logo = has_custom_logo() ? get_custom_logo() : '';
+    }
 ?>
 
 <nav class="navigation md:py-4 w-full">
@@ -7,9 +19,9 @@
     <!-- hamburger menu -->
     <div class="md:hidden py-2 flex items-center flex-wrap">
 
-        <?php if (has_custom_logo()) : ?>
+        <?php if ($logo) : ?>
             <div class="w-16 inline-block my-1 ml-3">
-                <?= get_custom_logo() ?>
+                <?= $logo ?>
             </div>
         <?php endif ?>
 
@@ -46,11 +58,11 @@
                 </li>
 
                 <!-- logo in the middle of the nav -->
-                <?php if (has_custom_logo()) : ?>
+                <?php if ($logo) : ?>
                 <?php if (floor((count($navigation) - 1) / 2) == $index) : ?>
                     <li class="hidden md:inline-block">
                         <div class="w-32">
-                            <?= get_custom_logo() ?>
+                            <?= $logo ?>
                         </div>
                     </li>
                 <?php endif ?>

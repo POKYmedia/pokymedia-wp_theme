@@ -48,5 +48,25 @@ class Pokymedia_CustomizerAPI_Site_Identity_Section
                 )
             ));
         }
+
+        // Logo variant for light backgrounds (pages without jumbotron)
+        $wp_customize->add_setting('dark_logo', array(
+            'default' => '',
+            'type' => 'theme_mod',
+            'capability' => 'edit_theme_options',
+            'sanitize_callback' => 'absint',
+        ));
+
+        $wp_customize->add_control(new WP_Customize_Media_Control(
+            $wp_customize,
+            'dark_logo',
+            array(
+                'label' => __('Dark logo', 'pokymedia'),
+                'description' => __('Used on pages with a light background.', 'pokymedia'),
+                'section' => 'title_tagline',
+                'mime_type' => 'image',
+                'priority' => 9,
+            )
+        ));
     }
 }
