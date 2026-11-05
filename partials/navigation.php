@@ -35,39 +35,39 @@
     </div>
 
     <!-- navigation -->
-    <ul
+    <div
             id="navbarMenu"
-            class="block w-full md:container md:flex items-center justify-between uppercase mx-0 md:mx-auto  py-6 md:py-0 text-center md:text-left hidden shadow-inner-xl-top md:shadow-inner-none<?= $isDarkTheme ? '' : '' ?>"
+            class="block w-full md:container md:flex items-center uppercase mx-0 md:mx-auto  py-6 md:py-0 text-center md:text-left hidden shadow-inner-xl-top md:shadow-inner-none"
     >
         <?php
         $navigation = wp_get_nav_menu_items('navigation');
         global $wp;
         $currentURL = trim(home_url($wp->request), '/');
+
+        // two halves around the logo, so the logo stays centered even with an odd number of items
+        $halves = $navigation ? array_chunk($navigation, (int) ceil(count($navigation) / 2)) : [];
         ?>
 
-        <?php if (true == $navigation): ?>
-            <?php foreach ($navigation as $index => $navItem) :
-                $active_class = (trim($navItem->url, '/') == $currentURL) ? 'active' : '';
-                ?>
-
-                <li class="<?= $active_class ?>">
-                    <a href="<?= $navItem->url ?>"
-                       class="py-2 md:py-0 block mx-auto">
-                        <span><?= $navItem->title ?></span>
-                    </a>
-                </li>
-
-                <!-- logo in the middle of the nav -->
-                <?php if ($logo) : ?>
-                <?php if (floor((count($navigation) - 1) / 2) == $index) : ?>
-                    <li class="hidden md:inline-block">
-                        <div class="w-32">
-                            <?= $logo ?>
-                        </div>
+        <?php foreach ($halves as $halfIndex => $half) : ?>
+            <ul class="md:flex-1 md:flex items-center md:justify-around">
+                <?php foreach ($half as $navItem) :
+                    $active_class = (trim($navItem->url, '/') == $currentURL) ? 'active' : '';
+                    ?>
+                    <li class="<?= $active_class ?>">
+                        <a href="<?= $navItem->url ?>"
+                           class="py-2 md:py-0 block mx-auto">
+                            <span><?= $navItem->title ?></span>
+                        </a>
                     </li>
-                <?php endif ?>
+                <?php endforeach ?>
+            </ul>
+
+            <?php if ($halfIndex == 0 && $logo) : ?>
+                <!-- logo in the middle of the nav -->
+                <div class="hidden md:block w-32 md:mx-8">
+                    <?= $logo ?>
+                </div>
             <?php endif ?>
-            <?php endforeach ?>
-        <?php endif ?>
-    </ul>
+        <?php endforeach ?>
+    </div>
 </nav>
